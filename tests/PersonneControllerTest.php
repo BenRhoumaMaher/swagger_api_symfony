@@ -132,34 +132,34 @@ class PersonneControllerTest extends WebTestCase
         $this->assertEquals(35, $personne->getAge());
     }
 
-    // public function testDelete(): void
-    // {
-    //     // Given
-    //     $client = static::createClient();
-    //     $entityManager = $client->getContainer()->get('doctrine')->getManager();
+    public function testDelete(): void
+    {
+        // Given
+        $client = static::createClient();
+        $entityManager = $client->getContainer()->get('doctrine')->getManager();
 
-    //     $personne = new Personne();
-    //     $personne->setName('Manoubi');
-    //     $personne->setAge(60);
+        $personne = new Personne();
+        $personne->setName('Manoubi');
+        $personne->setAge(60);
 
-    //     $entityManager->persist($personne);
-    //     $entityManager->flush();
+        $entityManager->persist($personne);
+        $entityManager->flush();
 
-    //     // When
-    //     $client->request('DELETE', '/api/personne/' . $personne->getId());
+        // When
+        $client->request('DELETE', '/api/personne/' . $personne->getId());
 
-    //     // Then
-    //     $this->assertResponseIsSuccessful();
+        // Then
+        $this->assertResponseIsSuccessful();
 
-    //     $this->assertJson($client->getResponse()->getContent());
+        $this->assertJson($client->getResponse()->getContent());
 
-    //     $data = json_decode($client->getResponse()->getContent(), true);
+        $data = json_decode($client->getResponse()->getContent(), true);
 
-    //     $this->assertArrayHasKey('message', $data);
-    //     $this->assertEquals('Personne deleted!', $data['message']);
+        $this->assertArrayHasKey('message', $data);
+        $this->assertEquals('Personne deleted!', $data['message']);
 
-    //     $deletedPersonne = $entityManager->getRepository(Personne::class)->find($personne->getId());
+        $deletedPersonne = $entityManager->getRepository(Personne::class)->find($personne->getId());
 
-    //     $this->assertNull($deletedPersonne, 'The Personne entity should be deleted from the database');
-    // }
+        $this->assertNull($deletedPersonne, 'The Personne entity should be deleted from the database');
+    }
 }
