@@ -80,8 +80,8 @@ class PersonneController extends AbstractController
         description: 'Send the name and the age of the Personne',
         content: new OA\JsonContent(
             properties: [
-                new OA\Property(property: 'name', type:'string'),
-                new OA\Property(property: 'age', type:'integer'),
+                new OA\Property(property: 'name', type: 'string'),
+                new OA\Property(property: 'age', type: 'integer'),
 
             ]
         )
@@ -113,8 +113,8 @@ class PersonneController extends AbstractController
         description: "Send fields of creation of a personne",
         content: [new OA\JsonContent(
             properties: [
-                new OA\Property(property: 'name', type:'string'),
-                new OA\Property(property: 'age', type:'integer'),
+                new OA\Property(property: 'name', type: 'string'),
+                new OA\Property(property: 'age', type: 'integer'),
 
             ]
         )]
@@ -131,8 +131,6 @@ class PersonneController extends AbstractController
 
         return new JsonResponse(['message' => 'Personne updated!'], Response::HTTP_OK);
     }
-
-
 
     #[Route('/{id}', name: 'delete', methods: ['DELETE'])]
     #[OA\Response(
